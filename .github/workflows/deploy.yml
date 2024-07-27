@@ -30,6 +30,9 @@ jobs:
         run: chmod +x m.py
 
       - name: Run bot script
+        run: pip install telebot
+        
+      - name: Run bot script
         run: python m.py
         env:
           TELEGRAM_API_KEY: ${{ secrets.TELEGRAM_API_KEY }} # Securely use API key
