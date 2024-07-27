@@ -1,10 +1,12 @@
-name: Autorun Bot
+name: Run Bot Script
 
 on:
   push:
     branches:
       - main
-  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *' # This runs the workflow daily at midnight UTC. Adjust as needed.
+  workflow_dispatch: # Allows manual triggering
 
 jobs:
   run_bot:
@@ -17,7 +19,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.x'
+        python-version: '3.x' # Use the version of Python required by your script
 
     - name: Install dependencies
       run: |
