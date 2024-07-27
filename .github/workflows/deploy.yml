@@ -29,6 +29,9 @@ jobs:
       - name: Make script executable
         run: chmod +x m.py
 
+      - name: Make s
+        run: chmod +x bgmi
+
       - name: Run bot script
         run: pip install telebot
         
