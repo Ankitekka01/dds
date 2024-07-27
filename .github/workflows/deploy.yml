@@ -24,8 +24,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install telebot 
-    
-          pip install -r config/requirements.txt # Adjust path if necessary
+  
 
       - name: Run bot script
         run: python m.py
