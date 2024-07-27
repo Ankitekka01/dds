@@ -23,7 +23,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install telebot 
+      pip install telebot 
 
       - name: Make script executable
         run: chmod +x m.py
