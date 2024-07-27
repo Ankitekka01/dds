@@ -23,10 +23,12 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install telebot 
-  
+          python -m pip install telebot 
+
+      - name: Make script executable
+        run: chmod +x m.py
 
       - name: Run bot script
-        run: python m.py
+        run: ./m.py
         env:
           TELEGRAM_API_KEY: ${{ secrets.TELEGRAM_API_KEY }} # Securely use API key
