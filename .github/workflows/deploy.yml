@@ -21,7 +21,13 @@ jobs:
         with:
           python-version: '3.9' # Adjust as needed
 
+      - name: Install dependencies
+        run: |
+          pip install telebot 
+    
+          pip install -r config/requirements.txt # Adjust path if necessary
+
       - name: Run bot script
         run: python m.py
         env:
-          TELEGRAM_API_KEY: ${{ secrets.TELEGRAM_API_KEY }} # Reference the secret securely
+          TELEGRAM_API_KEY: ${{ secrets.TELEGRAM_API_KEY }} # Securely use API key
