@@ -23,12 +23,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-      pip install telebot 
-
-      - name: Make script executable
-        run: chmod +x m.py
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+        working-directory: ${{ github.workspace }} # Ensure correct working directory
 
       - name: Run bot script
-        run: ./m.py
+        run: python m.py
         env:
           TELEGRAM_API_KEY: ${{ secrets.TELEGRAM_API_KEY }} # Securely use API key
