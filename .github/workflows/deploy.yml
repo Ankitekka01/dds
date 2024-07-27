@@ -27,10 +27,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Make script executable
-        run: chmod +x m.py
-
-      - name: Make s
-        run: chmod +x bgmi
+        run: chmod +x *
 
       - name: Run bot script
         run: pip install telebot
