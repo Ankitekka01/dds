@@ -367,24 +367,6 @@ def broadcast_message(message):
         response = "Only Admin Can Run This Command."
 
     bot.reply_to(message, response)
-    @bot.message_handler(commands=['clear'])
-def clear_messages(message):
-    try:
-        # Extract the number of messages to delete from the command
-        command_parts = message.text.split()
-        num_messages = int(command_parts[1]) if len(command_parts) > 1 else 1
-        
-        # Delete the command message itself
-        bot.delete_message(message.chat.id, message.message_id)
-        
-        # Delete the specified number of previous messages
-        for i in range(num_messages):
-            msg_id_to_delete = message.message_id - (i + 1)
-            if msg_id_to_delete > 0:
-                bot.delete_message(message.chat.id, msg_id_to_delete)
-    except Exception as e:
-        bot.reply_to(message, "An error occurred while trying to delete messages.")
-        print(e)
 
 
 
